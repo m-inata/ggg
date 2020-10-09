@@ -6,6 +6,20 @@ public class Rational {
     private final int denominator;
 
     /**
+     * 分子のゲッター
+     */
+    public int getNumerator() {
+        return numerator;
+    }
+
+    /**
+     * 分母のゲッター
+     */
+    public int getDenominator() {
+        return denominator;
+    }
+
+    /**
      * プライマリコンストラクタ
      * @param numerator 分子
      * @param denominator 分母

@@ -25,8 +25,17 @@ public class Rational {
      * @param denominator 分母
      */
     public Rational(int numerator, int denominator) {
-        this.numerator = numerator;
-        this.denominator = denominator;
+        if (numerator == 0 && denominator == 0)
+            throw new ArithmeticException("Denominator cannot be 0.");
+
+        int g = IntFunctions.gcd(numerator, denominator);
+        if (denominator < 0) {
+            numerator *= -1;
+            denominator *= -1;
+        }
+
+        this.numerator = numerator / g;
+        this.denominator = denominator / g;
     }
 
     /**
@@ -34,7 +43,7 @@ public class Rational {
      * 零を表す分数を構築
      */
     public Rational() {
-        this(0, 1)
+        this(0, 1);
     }
 
     /**
@@ -43,6 +52,6 @@ public class Rational {
      */
     @Override
     public String toString() {
-        return "" + numerator + "/" + denominator
+        return "" + numerator + "/" + denominator;
     }
 }
